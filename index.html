@@ -24,6 +24,7 @@
 
 
   <link rel="stylesheet" href="mystyle.css">
+
   <title>TechCart</title>
 </head>
 
@@ -125,12 +126,14 @@
                   id="navbarDropdownMenuLink" role="menu" data-mdb-toggle="dropdown" aria-expanded="false"
                   aria-haspopup="true" aria-expanded="false">
                   <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle" height="22"
-                    alt="" loading="lazy" />
+                    alt="" loading="lazy" id="profileimg" />
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                   <li><a class="dropdown-item" href="#">My profile</a></li>
                   <li><a class="dropdown-item" href="#">Settings</a></li>
-                  <li><a class="dropdown-item" href="#">Logout</a></li>
+                  <li><button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Open modal for @getbootstrap</button></li>
+                  
+                  
                 </ul>
               </div>
 
@@ -143,13 +146,61 @@
     </div>
     <!-- Jumbotron -->
 
+    <!-- model for login page  -->
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Log In</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form method="get" id="myForm">
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Username:</label>
+                <input type="text" class="form-control" id="recipient-name">
+              </div>
+              <div class="mb-3">
+                <label for="message-text" class="col-form-label">Password:</label>
+                <input type="password" class="form-control" id="recipient-password">
+              </div>
+              <input type="button" value="login" onclick="userlogindata()" data-bs-dismiss="modal">
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Login in</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- model for login page ends here  -->
+
+    <!-- model for single product -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content" id="thisismydetail">
+
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <!-- model for single product  ends here-->
+
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
       <!-- Container wrapper -->
       <div class="container justify-content-center justify-content-md-between">
         <!-- Left links -->
         <ul class="navbar-nav flex-row">
-          <li class="nav-item me-2 me-lg-0 " data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+          <li class="nav-item me-2 me-lg-0 " data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
+            aria-controls="offcanvasScrolling">
             <a class="nav-link" class="btn shadow-0 p-0 me-3">
               <i class="fas fa-bars me-1"></i>
               <span>Categories</span>
@@ -167,7 +218,7 @@
           <li class="nav-item me-2 me-lg-0 d-none d-md-inline-block">
             <a class="nav-link" href="#">Contact</a>
           </li>
-          
+
         </ul>
         <!-- Left links -->
 
@@ -175,182 +226,58 @@
           Download app<i class="fas fa-download ms-2"></i>
         </button>
       </div>
-      <!-- Container wrapper -->
+
     </nav>
-    <!-- Navbar -->
-
-    <!-- Sidenav -->
-    <!-- <div id="sidenav-1" class="w-50">
-      
-    </div> -->
-   
 
 
-    <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+    <!-- offcanvas starts from here -->
+
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+      id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Offcanvas with body scrolling</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
-        <ul class="sidenav-menu">
-          <li class="sidenav-item">
-            <a class="sidenav-link"><i class="fas fa-layer-group pe-3 "></i><span>Categories</span></a>
-            <ul class="sidenav-collapse show">
-              <li class="sidenav-item" >
-                <a class="sidenav-link" id="dresses" >Dresses</a>
-              </li>
-              <li class="sidenav-item">
-                <a class="sidenav-link">Shirts</a>
-              </li>
-              <li class="sidenav-item">
-                <a class="sidenav-link">Jeans</a>
-              </li>
-              <li class="sidenav-item">
-                <a class="sidenav-link">Shoes</a>
-              </li>
-              <li class="sidenav-item">
-                <a class="sidenav-link" id="elecronic">Accessories</a>
-              </li>
-              <li class="sidenav-item">
-                <a class="sidenav-link" id="other">Others</a>
-              </li>
-            </ul>
-          </li>
-          <li class="sidenav-item">
-            <a class="sidenav-link"><i class="fas fa-gem pe-3"></i><span>Brands</span></a>
-            <ul class="sidenav-collapse">
-              <li class="sidenav-item">
-                <a class="sidenav-link">Brand 1</a>
-              </li>
-              <li class="sidenav-item">
-                <a class="sidenav-link">Brand 2</a>
-              </li>
-              <li class="sidenav-item">
-                <a class="sidenav-link">Brand 3</a>
-              </li>
-              <li class="sidenav-item">
-                <a class="sidenav-link">Brand 4</a>
-              </li>
-            </ul>
-          </li>
-          <li class="sidenav-item">
-            <a class="sidenav-link"><i class="fas fa-gift pe-3"></i><span>Discounts</span></a>
-            <ul class="sidenav-collapse">
-              <li class="sidenav-item">
-                <a class="sidenav-link">-70%</a>
-              </li>
-              <li class="sidenav-item">
-                <a class="sidenav-link">-50%</a>
-              </li>
-              <li class="sidenav-item">
-                <a class="sidenav-link">Any</a>
-              </li>
-            </ul>
-          </li>
-          <li class="sidenav-item">
-            <a class="sidenav-link"><i class="fas fa-fire-alt pe-3"></i><span>Popular</span></a>
-            <ul class="sidenav-collapse">
-              <li class="sidenav-item">
-                <a class="sidenav-link">Jewelry</a>
-              </li>
-              <li class="sidenav-item">
-                <a class="sidenav-link">Snickers</a>
-              </li>
-            </ul>
-          </li>
-  
-        </ul>
-      </div>
-    </div>
-    <!-- Sidenav -->
-
-    <!-- Background image -->
-
-    <!-- Background image -->
-  </header>
-  <!--Main Navigation-->
-  <!-- <header>
-    <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-warning text-decoration-none">
-          <i class="bi bi-bootstrap fs-1"></i>
-        </a>
-
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="#" class="nav-link px-2 fs-5 text-secondary">Home</a></li>
-          <li><a href="#" class="nav-link px-2 fs-5 text-secondary">Features</a></li>
-          <li><a href="#" class="nav-link px-2 fs-5 text-secondary">Pricing</a></li>
-          <li><a href="#" class="nav-link px-2 fs-5 text-secondary">FAQs</a></li>
-          <li><a href="#" class="nav-link px-2 fs-5 text-secondary">About</a></li>
-        </ul>
-
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-          <input type="search" id="myInput" class="form-control form-control-dark text-bg-dark" placeholder="Search..."
-            aria-label="Search">
-        </form>
-
-        <div class="text-end">
-          <button type="button" class="btn btn-outline-warning text-bg-dark me-2" data-bs-toggle="modal"
-            data-bs-target="#exampleModal">
-            Login
-          </button>
-
-          <button type="button" class="btn btn-warning">Sign-up</button>
-          <div class="btn-group">
-            <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              <i class="bi bi-person-circle"></i>
-            </button>
-      
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                Categories
+              </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body" id="categoriesvalues"></div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                Brands
+              </button>
+            </h2>
+            <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body" id="brandsvalues"></div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                Filter By Price
+              </button>
+            </h2>
+            <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body"></div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-    
-  </header> -->
-  <!-- header ends here -->
 
-  <!-- crousal starts from here -->
-  <!-- <div id="carouselExampleDark" class="carousel carousel-dark slide">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active bg-dark"
-        aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner img-fluid">
-      <div class="carousel-item active" data-bs-interval="10000">
-        <img src="shop.jpg" class=" img-fluid w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>First slide label</h5>
-          <p>Some representative placeholder content for the first slide.</p>
-        </div>
-      </div>
-      <div class="carousel-item" data-bs-interval="2000">
-        <img src="shop.jpg" class="w-100 img-fluid " alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Second slide label</h5>
-          <p>Some representative placeholder content for the second slide.</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="shop.jpg" class="img-fluid w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Third slide label</h5>
-          <p>Some representative placeholder content for the third slide.</p>
-        </div>
+        </ul>
       </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon " aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div> -->
-  <!-- crausal ends here -->
+    <!-- offcanvas ends here -->
+  </header>
+
   <!-- product list starts from here -->
 
   <div class="container bg-white">
@@ -376,9 +303,9 @@
     <!-- nav bar ends here -->
 
     <!-- product details are here -->
-    <div class="row" id="product_item">
-      <div class="col-lg-3 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3">
-        <div class="product">
+    <div class="row" id="product_item" class="square-wrapper">
+      <div class="col-lg-3 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3 square square-transition" >
+        <div class="product ">
           <img
             src="https://images.pexels.com/photos/54203/pexels-photo-54203.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
             alt="">
