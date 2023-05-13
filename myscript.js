@@ -74,7 +74,7 @@ fetch("https://dummyjson.com/products?offset=0&limit=100", options)
     product_item.innerHTML += ihtml;
   })  
   .catch((err) => console.error(err));
-function categorIsFunction(...catname) {
+function categorIsFunction(catname) {
   let abc = catname.textContent;
   console.log(catname);
   let result = categoryListValue.filter((obj) => obj.category == abc);
