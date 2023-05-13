@@ -59,7 +59,7 @@ fetch("https://dummyjson.com/products?offset=0&limit=100", options)
     for (let cate in categorisarray) {
       categorylist += `
                 <li class="sidenav-item">
-         <div id="${categorisarray[cate]}" onclick="categorIsFunction([${categorisarray[cate]}])">${categorisarray[cate]}</div> </li>
+         <div id="${categorisarray[cate]}" onclick="categorIsFunction(${categorisarray[cate]})">${categorisarray[cate]}</div> </li>
                 `;
     }
     for (let brand in brandsArray) {
