@@ -460,3 +460,8 @@ nav ul.show{
     opacity: 1;
     transform: none;
 }
+.eventBorder{
+    border:1px solid lightblue;
+    border-radius:5px;
+    
+}
