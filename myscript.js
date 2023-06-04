@@ -58,26 +58,32 @@ fetch("https://dummyjson.com/products?offset=0&limit=100", options)
 
     for (let cate in categorisarray) {
       categorylist += `
-                <li class="sidenav-item">
-         <div id="${categorisarray[cate]}" onclick="categorIsFunction(${categorisarray[cate]})">${categorisarray[cate]}</div> </li>
+                <li class="sidenav-item" onclick="yoUrtar(event)">
+         <div id="${categorisarray[cate]}">${categorisarray[cate]}</div> </li>
                 `;
+
     }
     for (let brand in brandsArray) {
       brandlist += `
       <li class="sidenav-item">
-      <div id="${brandsArray[brand]}" onclick="brandFunction(${brandsArray[brand]})">${brandsArray[brand]}</div>
+      <div id="${brandsArray[brand]}">${brandsArray[brand]}</div>
     </li>
                 `;
+               
     }
+    
     categoriesvalues.innerHTML = categorylist;    
     brandsvalues.innerHTML = brandlist;    
     product_item.innerHTML += ihtml;
   })  
   .catch((err) => console.error(err));
-function categorIsFunction(catname) {
-  let abc = catname.textContent;
-  console.log(catname);
-  let result = categoryListValue.filter((obj) => obj.category == abc);
+  function yoUrtar(event){
+    let textMy = event.target.id;
+    // event.target.setAttribute("style",'color:red');
+    event.target.classList.add("eventBorder");
+  
+  let result = categoryListValue.filter((obj) => obj.category == textMy);
+
  
   
   let categoryhtml = "";
@@ -109,12 +115,6 @@ function categorIsFunction(catname) {
 								`;
               }
               product_item.innerHTML = categoryhtml;
-}
-
-function brandFunction(brnadName){
-  let bN = brnadName;
- 
-  console.log(bN);
 }
 // function for single product discraption
 function singleiddescription(data) {
